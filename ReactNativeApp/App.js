@@ -3,12 +3,20 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from "react";
 
 export default function App() {
-  const [name, setName] = useState("Mehmet") 
+  const [name, setName] = useState("Mehmet") ;
+  const [age, setAge] = useState(29); 
+  const [isVisible, setisVisible] = useState(true); 
   return (
     <View style={styles.container}>
-
-      <Text>{name}</Text>
-      <Button style={styles.but} title='Click' onPress={()=>setName("Ahmet")}>Click</Button>
+      <Button style={styles.but} title={isVisible ? "Gizle" : "Göster"} onPress={() => setisVisible(!isVisible)}/>
+      {isVisible && (
+        <>
+          <Text>{name}</Text>
+          <Text>{age}</Text>
+          <Button style={styles.but} title='İsmi Değiştir' onPress={()=>setName("Ahmet")}/>
+          <Button style={styles.but} title='Yaşı Değiştir' onPress={()=>setAge(31)}/>
+        </>
+      )}
 
     </View>
   );
