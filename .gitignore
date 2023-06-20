@@ -1,5 +1,5 @@
-node_modules/
-.expo/
+ReactNative/node_modules/
+ReactNative/.expo/
 dist/
 npm-debug.*
 *.jks
@@ -8,7 +8,7 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+ReactNative/web-build/
 
 # macOS
 .DS_Store
