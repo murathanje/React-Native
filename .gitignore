@@ -1,5 +1,5 @@
 ReactNative/node_modules/
-ReactNative/.expo/
+.expo/
 dist/
 npm-debug.*
 *.jks

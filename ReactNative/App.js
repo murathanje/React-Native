@@ -4,16 +4,26 @@ import React, { useState } from "react";
 
 export default function App() {
   return (
-    <View style={styles.container}></View>
+    <View style={styles.container}>
+      <View style={styles.box1}></View>
+      <View style={styles.box2}></View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#yellow',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 0.9,
+    backgroundColor: 'yellow',
+    },
+  box1: {
+    backgroundColor: "gray",
+    flex: 0.5,
+
   },
+  box2: {
+    backgroundColor: "bisque",
+    flex: 0.5,
+  }
 
 });
