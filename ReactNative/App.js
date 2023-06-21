@@ -4,6 +4,7 @@ import Title from "./src/components/Title.js"
 import Header from "./src/components/Header.js"
 import User from "./src/components/User.js"
 import Users from "./src/components/Users.js"
+import ListItem from './src/components/ListItem.js';
 import { 
   Button, 
   StyleSheet, 
@@ -12,37 +13,96 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   TouchableWithoutFeedback,
-  Image
+  Image,
+  FlatList,
+  SafeAreaView,
+  RefreshControl
 } from 'react-native';
 
-const handleClick = () => {
-  alert("Merhaba")
-}
+
+
+const DATA = [
+  {
+    id: '1',
+    title: 'First Item',
+  },
+  {
+    id: '2',
+    title: 'Second Item',
+  },
+  {
+    id: '3',
+    title: 'Third Item',
+  },
+  {
+    id: '4',
+    title: 'First Item',
+  },
+  {
+    id: '5',
+    title: 'Second Item',
+  },
+  {
+    id: '6',
+    title: 'Third Item',
+  },
+  {
+    id: '7',
+    title: 'First Item',
+  },
+  {
+    id: '8',
+    title: 'Second Item',
+  },
+  {
+    id: '9',
+    title: 'Third Item',
+  },
+  {
+    id: '10',
+    title: 'First Item',
+  },
+  {
+    id: '11',
+    title: 'Second Item',
+  },
+  {
+    id: '12',
+    title: 'Third Item',
+  },
+];
 
 
 const App = () => {
+
   return (
-    <View style={styles.container}>
-      <Image  
-      resizeMode='cover'
-      source={require('./assets/1.jpeg')}
-      style={{width:"100%", height:180, borderWidth:2, borderColor: "red"}}
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={({ item }) => <ListItem item={item} />}
+        keyExtractor={item => item.id}
+        // refreshControl={
+        //   <RefreshControl refreshing={true} onRefresh={()=>{}} />
+        // }
       />
-      <Image  
-      resizeMode='contain'
-        source={{ uri:"https://upload.wikimedia.org/wikipedia/commons/4/40/Galata_Kulesi_-_%C4%B0stanbul%2C_T%C3%BCrkiye_2014-05-16_12-26.jpeg"}}
-      style={{width:"100%", height:180, borderWidth:2, borderColor: "red"}}
-      />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    marginTop: 30
     },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  }, 
   // box1: {
   //   backgroundColor: "gray",
   //   flex: 1,
