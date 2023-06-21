@@ -1,22 +1,46 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from "react";
-
 import Title from "./src/components/Title.js"
 import Header from "./src/components/Header.js"
 import User from "./src/components/User.js"
 import Users from "./src/components/Users.js"
+import { 
+  Button, 
+  StyleSheet, 
+  Text, 
+  View,
+  TouchableOpacity,
+  TouchableHighlight,
+  TouchableWithoutFeedback 
+} from 'react-native';
+
+const handleClick = () => {
+  alert("Merhaba")
+}
+
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Title color= "red" numberOfLines={1} />
-      <Title text="React Native" color="green" numberOfLines={2} />
-      <Title text="Native" color="blue" numberOfLines={3} />
-      <Header />
+      <Button title='Click Button' onPress={handleClick}/>
+      <TouchableOpacity onPress={handleClick}>
+        <Text>Click TouchableOpacity</Text>
+      </TouchableOpacity>
 
-      <User data = {{ id: 1, name: "Mehmet"}}/>
-      <Users data = {["Ahmet", "Mehmet", "Ali"]}/>
+      <TouchableHighlight
+        activeOpacity={0.6}
+        underlayColor={"yellow"}
+        onPress={handleClick}
+      >
+        <Text>Clicl TouchableHighlight</Text>
+      </TouchableHighlight>
+
+      <TouchableWithoutFeedback
+        onPress={handleClick}
+      >
+        <Text>Click TouchableWithoutFeedback</Text>
+      </TouchableWithoutFeedback>
+      
     </View>
   );
 }
