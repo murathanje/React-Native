@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-const Title = () => {
+const Title = (props) => {
     return (
         <View>
-            <Text style = {styles.title}>Merhaba</Text>
+            <Text style = {[styles.title, {color: props.color}]}>{props.numberOfLines} - {props.text}</Text>
         </View>
     );
 };

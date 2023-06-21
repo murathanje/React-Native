@@ -4,12 +4,19 @@ import React, { useState } from "react";
 
 import Title from "./src/components/Title.js"
 import Header from "./src/components/Header.js"
+import User from "./src/components/User.js"
+import Users from "./src/components/Users.js"
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Title />
+      <Title text = "Merhaba React Native" color= "red" numberOfLines={1} />
+      <Title text="React Native" color="green" numberOfLines={2} />
+      <Title text="Native" color="blue" numberOfLines={3} />
       <Header />
+
+      <User data = {{ id: 1, name: "Mehmet"}}/>
+      <Users data = {["Ahmet", "Mehmet", "Ali"]}/>
     </View>
   );
 }
