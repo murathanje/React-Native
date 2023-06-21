@@ -11,7 +11,8 @@ import {
   View,
   TouchableOpacity,
   TouchableHighlight,
-  TouchableWithoutFeedback 
+  TouchableWithoutFeedback,
+  Image
 } from 'react-native';
 
 const handleClick = () => {
@@ -22,25 +23,16 @@ const handleClick = () => {
 const App = () => {
   return (
     <View style={styles.container}>
-      <Button title='Click Button' onPress={handleClick}/>
-      <TouchableOpacity onPress={handleClick}>
-        <Text>Click TouchableOpacity</Text>
-      </TouchableOpacity>
-
-      <TouchableHighlight
-        activeOpacity={0.6}
-        underlayColor={"yellow"}
-        onPress={handleClick}
-      >
-        <Text>Clicl TouchableHighlight</Text>
-      </TouchableHighlight>
-
-      <TouchableWithoutFeedback
-        onPress={handleClick}
-      >
-        <Text>Click TouchableWithoutFeedback</Text>
-      </TouchableWithoutFeedback>
-      
+      <Image  
+      resizeMode='cover'
+      source={require('./assets/1.jpeg')}
+      style={{width:"100%", height:180, borderWidth:2, borderColor: "red"}}
+      />
+      <Image  
+      resizeMode='contain'
+        source={{ uri:"https://upload.wikimedia.org/wikipedia/commons/4/40/Galata_Kulesi_-_%C4%B0stanbul%2C_T%C3%BCrkiye_2014-05-16_12-26.jpeg"}}
+      style={{width:"100%", height:180, borderWidth:2, borderColor: "red"}}
+      />
     </View>
   );
 }
