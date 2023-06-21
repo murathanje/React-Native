@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 const Title = (props) => {
     return (
@@ -15,5 +16,10 @@ const styles = StyleSheet.create({
         fontWeight: "700"
     }
 })
+
+
+Title.prototype = {
+    text : PropTypes.string, 
+}
 
 export default Title;
