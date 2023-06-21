@@ -19,7 +19,11 @@ const styles = StyleSheet.create({
 
 
 Title.prototype = {
-    text : PropTypes.string, 
+    text : PropTypes.string.isRequired, 
+}
+
+Title.defaultProps = {
+    text: "Varsayılan"
 }
 
 export default Title;

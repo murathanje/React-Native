@@ -10,7 +10,7 @@ import Users from "./src/components/Users.js"
 const App = () => {
   return (
     <View style={styles.container}>
-      <Title text = "Merhaba React Native" color= "red" numberOfLines={1} />
+      <Title color= "red" numberOfLines={1} />
       <Title text="React Native" color="green" numberOfLines={2} />
       <Title text="Native" color="blue" numberOfLines={3} />
       <Header />
