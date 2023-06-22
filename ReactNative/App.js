@@ -18,96 +18,16 @@ import {
   SafeAreaView,
   RefreshControl
 } from 'react-native';
-
-
-
-// const DATA = [
-//   {
-//     id: '1',
-//     title: 'First Item',
-//   },
-//   {
-//     id: '2',
-//     title: 'Second Item',
-//   },
-//   {
-//     id: '3',
-//     title: 'Third Item',
-//   },
-//   {
-//     id: '4',
-//     title: 'First Item',
-//   },
-//   {
-//     id: '5',
-//     title: 'Second Item',
-//   },
-//   {
-//     id: '6',
-//     title: 'Third Item',
-//   },
-//   {
-//     id: '7',
-//     title: 'First Item',
-//   },
-//   {
-//     id: '8',
-//     title: 'Second Item',
-//   },
-//   {
-//     id: '9',
-//     title: 'Third Item',
-//   },
-//   {
-//     id: '10',
-//     title: 'First Item',
-//   },
-//   {
-//     id: '11',
-//     title: 'Second Item',
-//   },
-//   {
-//     id: '12',
-//     title: 'Third Item',
-//   },
-// ];
+import Counters from './src/components/Counters.js';
 
 
 const App = () => {
-  const [users, setUsers] = useState([
-    {
-      id: 1, 
-      name: "Mehmet"
-    },
-    {
-      id:2, 
-      name:"Ahmet"
-    }
-  ]);
-
-  const handlePress = () => {
-    setUsers((prev) => [  
-    { 
-      id: Math.floor(Math.random()*1000),
-      name: Math.floor(Math.random() * 1000),
-    },
-    ...prev
-    ]);
-  };
+  const [isvisible,setIsVisible] = useState(true);
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList 
-        style={{marginTop:50}}
-        data={users}
-        keyExtractor={(item) => item.id}
-        renderItem={({item}) => (
-          <View style={styles.item}>
-            <Text style={styles.text}>{item.name}</Text>
-          </View>
-        )}
-      />
-      <Button title='Ekle' onPress={handlePress}/>
+      {isvisible && <Counters />}
+      <Button title='Göster/Gizle' onPress={()=>setIsVisible(!isvisible)}/>
     </SafeAreaView>
   );
 };
@@ -115,39 +35,14 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
-    item: {
-      backgroundColor: "#eeeeee",
-      padding: 10,
-      borderBottomWidth:1
-  },
-  text: {
+  click: {
+    marginTop: 20,
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight:'bold'
   }
-  // box1: {
-  //   backgroundColor: "gray",
-  //   flex: 1,
-
-  // },
-  // box2: {
-  //   backgroundColor: "bisque",
-  //   flex: 1,
-  //   flexDirection: "row"
-  // },
-  // child1: {
-  //   flex: 1,
-  //   backgroundColor: "black"
-  // },
-  // child2: {
-  //   flex: 2,
-  //   backgroundColor: "red"
-  // },
-  // child3: {
-  //   flex: 1,
-  //   backgroundColor: "#140156"
-  // }
-
 });
 
 export default App;
