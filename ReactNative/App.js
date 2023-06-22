@@ -21,88 +21,106 @@ import {
 
 
 
-const DATA = [
-  {
-    id: '1',
-    title: 'First Item',
-  },
-  {
-    id: '2',
-    title: 'Second Item',
-  },
-  {
-    id: '3',
-    title: 'Third Item',
-  },
-  {
-    id: '4',
-    title: 'First Item',
-  },
-  {
-    id: '5',
-    title: 'Second Item',
-  },
-  {
-    id: '6',
-    title: 'Third Item',
-  },
-  {
-    id: '7',
-    title: 'First Item',
-  },
-  {
-    id: '8',
-    title: 'Second Item',
-  },
-  {
-    id: '9',
-    title: 'Third Item',
-  },
-  {
-    id: '10',
-    title: 'First Item',
-  },
-  {
-    id: '11',
-    title: 'Second Item',
-  },
-  {
-    id: '12',
-    title: 'Third Item',
-  },
-];
+// const DATA = [
+//   {
+//     id: '1',
+//     title: 'First Item',
+//   },
+//   {
+//     id: '2',
+//     title: 'Second Item',
+//   },
+//   {
+//     id: '3',
+//     title: 'Third Item',
+//   },
+//   {
+//     id: '4',
+//     title: 'First Item',
+//   },
+//   {
+//     id: '5',
+//     title: 'Second Item',
+//   },
+//   {
+//     id: '6',
+//     title: 'Third Item',
+//   },
+//   {
+//     id: '7',
+//     title: 'First Item',
+//   },
+//   {
+//     id: '8',
+//     title: 'Second Item',
+//   },
+//   {
+//     id: '9',
+//     title: 'Third Item',
+//   },
+//   {
+//     id: '10',
+//     title: 'First Item',
+//   },
+//   {
+//     id: '11',
+//     title: 'Second Item',
+//   },
+//   {
+//     id: '12',
+//     title: 'Third Item',
+//   },
+// ];
 
 
 const App = () => {
+  const [name, setName] = useState("Mehmet");
+  const [age, setAge] = useState(19);
+  const [isvisible, setIsVisible] = useState(true);
+  
+  const handleButtonClick = () => {
+    let isim =  name  == "Mehmet" ? "Ahmet" : "Mehmet";
+    let yas =  age  == 19 ? 20 : 19;
+    setName(isim);
+    setAge(yas);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={({ item }) => <ListItem item={item} />}
-        keyExtractor={item => item.id}
-        // refreshControl={
-        //   <RefreshControl refreshing={true} onRefresh={()=>{}} />
-        // }
-      />
+      <TouchableOpacity style={styles.hide} onPress={() => setIsVisible(!isvisible)}>
+        <Text>{isvisible ? "Gizle" : "Göster"}</Text>
+      </TouchableOpacity>
+      {
+        isvisible && (
+          <>
+            <Text>İsim: {name}</Text>
+            <Text>Yaş: {age}</Text>
+            <TouchableOpacity style={styles.click} onPress={handleButtonClick}>
+              <Text>Değiştir</Text>
+            </TouchableOpacity>
+          </>
+        )
+      }
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 30
+    alignItems: "center",
+    justifyContent: "center",
     },
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    click: {
+      marginTop: 30,
+      fontSize: 20,
+      fontWeight: 'bold'
   },
-  title: {
-    fontSize: 32,
-  }, 
+  hide: {
+    marginBottom: 30,
+    fontSize: 20,
+    fontWeight: 'bold'
+  }
   // box1: {
   //   backgroundColor: "gray",
   //   flex: 1,
