@@ -74,22 +74,40 @@ import {
 
 
 const App = () => {
-  const [user, setUser] = useState({id: 1, name: "Mehmet"});
-  
-  const handleButtonClick = () => {
-    // setUser({...user, id: 2})
-    // setUser({...user, name: "Ali"})
-    // setUser((prev) => ({...prev, id:3}))
-    setUser({name: "Murat", id: 5})
+  const [users, setUsers] = useState([
+    {
+      id: 1, 
+      name: "Mehmet"
+    },
+    {
+      id:2, 
+      name:"Ahmet"
+    }
+  ]);
+
+  const handlePress = () => {
+    setUsers((prev) => [  
+    { 
+      id: Math.floor(Math.random()*1000),
+      name: Math.floor(Math.random() * 1000),
+    },
+    ...prev
+    ]);
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>ID: {user.id}</Text>
-      <Text>İsim: {user.name}</Text>
-      <TouchableOpacity style={styles.click} onPress={handleButtonClick}>
-        <Text>Değiştir</Text>
-      </TouchableOpacity>
+      <FlatList 
+        style={{marginTop:50}}
+        data={users}
+        keyExtractor={(item) => item.id}
+        renderItem={({item}) => (
+          <View style={styles.item}>
+            <Text style={styles.text}>{item.name}</Text>
+          </View>
+        )}
+      />
+      <Button title='Ekle' onPress={handlePress}/>
     </SafeAreaView>
   );
 };
@@ -97,16 +115,13 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    },
-    click: {
-      marginTop: 30,
-      fontSize: 20,
-      fontWeight: 'bold'
   },
-  hide: {
-    marginBottom: 30,
+    item: {
+      backgroundColor: "#eeeeee",
+      padding: 10,
+      borderBottomWidth:1
+  },
+  text: {
     fontSize: 20,
     fontWeight: 'bold'
   }
