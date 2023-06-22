@@ -74,33 +74,22 @@ import {
 
 
 const App = () => {
-  const [name, setName] = useState("Mehmet");
-  const [age, setAge] = useState(19);
-  const [isvisible, setIsVisible] = useState(true);
+  const [user, setUser] = useState({id: 1, name: "Mehmet"});
   
   const handleButtonClick = () => {
-    let isim =  name  == "Mehmet" ? "Ahmet" : "Mehmet";
-    let yas =  age  == 19 ? 20 : 19;
-    setName(isim);
-    setAge(yas);
+    // setUser({...user, id: 2})
+    // setUser({...user, name: "Ali"})
+    // setUser((prev) => ({...prev, id:3}))
+    setUser({name: "Murat", id: 5})
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.hide} onPress={() => setIsVisible(!isvisible)}>
-        <Text>{isvisible ? "Gizle" : "Göster"}</Text>
+      <Text>ID: {user.id}</Text>
+      <Text>İsim: {user.name}</Text>
+      <TouchableOpacity style={styles.click} onPress={handleButtonClick}>
+        <Text>Değiştir</Text>
       </TouchableOpacity>
-      {
-        isvisible && (
-          <>
-            <Text>İsim: {name}</Text>
-            <Text>Yaş: {age}</Text>
-            <TouchableOpacity style={styles.click} onPress={handleButtonClick}>
-              <Text>Değiştir</Text>
-            </TouchableOpacity>
-          </>
-        )
-      }
     </SafeAreaView>
   );
 };
