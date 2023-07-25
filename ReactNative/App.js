@@ -4,6 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/Home';
 import UsersScreen from './src/screens/Users';
+import UsersDetail from './src/screens/USersDetail';
+
+
+
+
+
+
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -22,6 +29,14 @@ function App() {
           component={UsersScreen}
           options={{
             title: 'Kullanıcılar',
+            headerTitleAlign: 'center' // Burada yer alan özellik ile başlığı ortala
+          }}
+        />
+        <Stack.Screen
+          name="Detay"
+          component={UsersDetail}
+          options={{
+            title: 'Detay',
             headerTitleAlign: 'center' // Burada yer alan özellik ile başlığı ortala
           }}
         />
