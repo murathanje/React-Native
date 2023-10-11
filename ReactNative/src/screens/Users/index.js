@@ -45,7 +45,7 @@ const UsersScreen = ({ navigation }) => {
         data={data}
         keyExtractor={item => item.id}
         renderItem={({item}) =>  <Item item = {item}/>}
-      />
+      /> 
     </View>
   )
 }
