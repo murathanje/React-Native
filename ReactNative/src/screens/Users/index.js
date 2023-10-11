@@ -16,9 +16,29 @@ const data = [
         id:3,
         name: "Alper"
     },
+    {
+        id:4,
+        name: "Alpe"
+    },
+    {
+        id:5,
+        name: "Alpersdf"
+    },
+    {
+        id:6,
+        name: "Alpsdf"
+    },
+    {
+        id:7,
+        name: "Alpergsd"
+    },
+    {
+        id:8,
+        name: "Alperasd"
+    },
 
 ]
-const UsersScreen = ({ navigation}) => {
+const UsersScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <FlatList 
