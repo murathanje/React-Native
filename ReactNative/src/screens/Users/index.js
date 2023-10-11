@@ -1,39 +1,33 @@
-import { View, Text, Button, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, Button, FlatList } from 'react-native'
 import React from 'react'
-import Item from "./item"
+import Item from './item'
+
 
 const data = [
     {
-    id: 1,
-    name: "Murathan"
+        id:1,
+        name: "Ahmet"
     },
     {
-        id: 2,
-        name: "Mehmet"
+        id:2,
+        name: "Murat"
     },
     {
-        id: 3,
-        name: "Ali"
-    }
-]
+        id:3,
+        name: "Alper"
+    },
 
-const UsersScreen = ({ navigation }) => {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-                <FlatList 
-                    data={data}
-                    keyExtractor={item => item.id}
-                    renderItem={({item}) => <Item item = {item}/>}
-                />
-            </View>
-            <View style={{ flex: 1, borderBottomWidth: 1, alignItems: 'center' }}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Text style={{ fontSize: 18, color: 'blue' }}>Geri</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
+]
+const UsersScreen = ({ navigation}) => {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <FlatList 
+        data={data}
+        keyExtractor={item => item.id}
+        renderItem={({item}) =>  <Item item = {item}/>}
+      />
+    </View>
+  )
 }
 
-export default UsersScreen
+export default UsersScreen;
