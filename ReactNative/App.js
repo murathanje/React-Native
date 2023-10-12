@@ -12,24 +12,44 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Users'>
-        
+      <Stack.Navigator initialRouteName='Users'
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      >
+
         <Stack.Screen
-          name="Home" 
+          name="Home"
           component={HomeScreen}
-          options={{title: "Anasayfa"}} 
+          options={{ title: "Anasayfa" }}
         />
 
-        <Stack.Screen 
-          name="Users" 
+        <Stack.Screen
+          name="Users"
           component={UsersScreen}
-          options={{title:"Kullanıcılar"}} 
+          options={{
+            title: "Kullanıcılar", 
+            headerStyle: {
+              backgroundColor: "#faefdd",
+            },
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            }, 
+            headerTitleAlign: 'center',
+            
+          }}
         />
 
-        <Stack.Screen 
-          name="UserDetail" 
+        <Stack.Screen
+          name="UserDetail"
           component={UserDetail}
-          options={{ title:"UserDetail"}} 
+          options={({ route }) => ({ title: route.params.name, headerTitleAlign: 'center' })}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -4,7 +4,7 @@ import React from 'react'
 const UserDetail = ({ route, navigation }) => {
     const data = route.params;
     return (
-        <View style={styles.container}>
+        <View style={styles.container} >
             <Text style={styles.text}>UserDetail</Text>
             <Text style={styles.text}>{JSON.stringify(data,null,2)}</Text>
 

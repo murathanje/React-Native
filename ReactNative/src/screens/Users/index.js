@@ -36,15 +36,28 @@ const data = [
         id:8,
         name: "Alperasd"
     },
+    {
+        id:9,
+        name: "Alperasd"
+    },
+    {
+        id:10,
+        name: "Alperasd"
+    },
+    {
+        id:11,
+        name: "Alperasd"
+    },
 
 ]
 const UsersScreen = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <FlatList 
         data={data}
         keyExtractor={item => item.id}
-        renderItem={({item}) =>  <Item item = {item}/>}
+        renderItem={({item}) =>  <Item item = {item}
+        showsVerticalScrollIndicator={false}/>}
       /> 
     </View>
   )
